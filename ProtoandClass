@@ -1,0 +1,106 @@
+// const foo = (i = 0) => {
+//   if (i === 10) return;
+//   console.log(i);
+//   foo(++i);
+
+// };
+
+// foo(9);
+
+// const nFact = (n) => {
+// 	if (n === 1) return 1;
+// 	return n* nFact(n - 1);
+// };
+
+
+
+// function User(options){
+// 	this.email = options.email;
+// 	this.password = options.password;
+// 	this.sayHello = function() {
+// 		console.log(`${this.email}`);
+// 	}	
+// }
+// User.prototype.sayBye = function(){
+// 	console.log('bye')
+// }
+// const user = new User({
+// 	email: '123',
+// 	password: 'sad'
+// });
+
+// user.sayHello();
+// user.sayBye();
+// // this
+// // look to the left of the dot
+// // is new being used?
+// // are .bind .call .apply being used
+// // otherwise this refers to the window object
+
+// function OneDShape(length){
+// 	this.length = length;
+// }
+// function TwoDShape(length, width){
+// 	OneDShape.call(this, length);
+// 	this.width = width;
+// }
+
+
+// function ThreeDShape(length, width, height){
+// 	TwoDShape.call(this, length, width);
+// 	this.height = height;
+// }
+
+// const asda = new ThreeDShape(1,2,3);
+// console.log(asda);
+
+// OneDShape.prototype.printLength = function(){console.log(this.length)};
+// TwoDShape.prototype = Object.create(OneDShape.prototype);
+// TwoDShape.prototype.printWidth = function(){console.log(this.width)};
+// ThreeDShape.prototype = Object.create(TwoDShape.prototype);
+// ThreeDShape.prototype.printHeight = function(){console.log(this.height)};
+
+// const cube = new ThreeDShape(1,2,3);
+// cube.printWidth();
+// cube.printLength();
+// cube.printHeight();
+
+class Line {
+	constructor(length){
+		this.length = length;
+	}
+	printLength() {
+		console.log(this.length);
+	}
+}
+
+class Square extends Line {
+	constructor(length, height){
+		super(length);
+		this.height = height;
+	}
+	printHeight() {
+		console.log(this.height);
+	}
+
+	printArea() {
+		console.log(this.height * this.length);
+	}
+}
+
+class Cube extends Square {
+	constructor(length, height, depth){
+		super(length, height);
+		this.depth = depth;
+	}
+	printDepth() {
+		console.log(this.depth);
+	}
+
+	printVolume() {
+	console.log(this.height * this.length * this.depth);
+	}
+}
+
+const c = new Cube(1,2,3);
+console.log(c.printVolume());# notes
